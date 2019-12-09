@@ -1,6 +1,6 @@
 {
   "name": "pojo-validator-react",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "description": "React hook that makes using pojo-validator easy with react.",
   "main": "dist/lib/commonjs/index.js",
   "module": "dist/lib/esm/index.js",

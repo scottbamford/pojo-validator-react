@@ -1,5 +1,6 @@
 ﻿import * as React from "react";
 import { ValidationErrors, Validator, ValidationCallback, ValidationState } from "pojo-validator";
+import { ValidateCallback } from './ValidateCallback';
 
 /**
  * Hook that provides a validate method and its associated validationErrors as a state object managed by validation.
@@ -9,7 +10,7 @@ import { ValidationErrors, Validator, ValidationCallback, ValidationState } from
  * 
  * @param validating the validation method.
  */
-export function useValidatorCallback(validating: (validation: ValidationState, fieldsToCheck?: Array<string>) => void, deps: React.DependencyList): [(fieldsToCheck?: Array<string>) => boolean, ValidationErrors] {
+export function useValidatorCallback(validating: (validation: ValidationState, fieldsToCheck?: Array<string>) => void, deps: React.DependencyList): [ValidateCallback, ValidationErrors] {
     const [validationErrors, setValidationErrors] = React.useState<ValidationErrors>({});
 
     // Create a ValidationCallback that ignores the model it receives and uses model that we get passed in as a dependency.

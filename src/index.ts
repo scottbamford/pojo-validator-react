@@ -1,1 +1,2 @@
-﻿export * from "./useValidatorCallback";
+﻿export * from './useValidatorCallback';
+export * from './ValidateCallback';
