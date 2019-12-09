@@ -18,9 +18,20 @@ export function useValidatorCallback(validating: (validation: ValidationState, f
     }, deps);
 
     // Create the method in the right format for us to return it so we can call validate() directly.
-    const validate = React.useCallback((fieldsToCheck?: Array<string>): boolean => {
+    const validate = React.useCallback((fieldsToCheck?: string | Array<string>): boolean => {
         let validator = new Validator(validatingModel);
-        const ok = validator.validate({} /* Model is ignored by our validation code so we pass an empty object */, fieldsToCheck);
+
+        // Work out the fields to be checked as we support passing a single field for convenience as well as passing an array.
+        let fields: Array<string> | undefined = undefined;
+        if (!fieldsToCheck) {
+            if (fieldsToCheck as string) {
+                fields = [(fieldsToCheck as string)];
+            } else {
+                fields = (fieldsToCheck as any) as Array<string>;
+            }
+        }
+        
+        const ok = validator.validate({} /* Model is ignored by our validation code so we pass an empty object */, fields);
 
         setValidationErrors({
             ...validationErrors,
