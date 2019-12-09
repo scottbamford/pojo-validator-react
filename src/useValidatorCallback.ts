@@ -24,7 +24,7 @@ export function useValidatorCallback(validating: (validation: ValidationState, f
 
         // Work out the fields to be checked as we support passing a single field for convenience as well as passing an array.
         let fields: Array<string> | undefined = undefined;
-        if (!fieldsToCheck) {
+        if (fieldsToCheck) {
             if (fieldsToCheck as string) {
                 fields = [(fieldsToCheck as string)];
             } else {
