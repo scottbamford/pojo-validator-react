@@ -1,6 +1,6 @@
 {
   "name": "pojo-validator-react",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "React hook that makes using pojo-validator easy with react.",
   "main": "dist/lib/commonjs/index.js",
   "module": "dist/lib/esm/index.js",
@@ -40,13 +40,17 @@
     "rebuild": "npm run-script clean && npm run-script build"
   },
   "dependencies": {
-    "pojo-validator": "^2.0.1",
-    "react": "^16.8.6",
-    "tslib": "^1.9.3"
+    "pojo-validator": "^2.0.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "reactstrap": ">=8.0.0",
+    "tslib": ">=1.9.3"
   },
   "devDependencies": {
-    "@types/react": "^16.8.20",
-    "typescript": "3.4.5",
-    "rimraf": "^2.6.3"
+    "@types/node": "^15.12.2",
+    "@types/react": "^17.0.11",
+    "typescript": "^4.3.2",
+    "rimraf": "^3.0.2"
   }
 }
